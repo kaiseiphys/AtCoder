@@ -5,28 +5,32 @@ using namespace std;
 int main() {
     // 入力
     int i;
-    int A, B, D;
-    cin >> A >> B >> D;
-    vector <int> c(A, 0);
-    for (i=0; i<A; i++) {
-        cin >> c.at(i);
+    int counter = 0;
+    int T;
+    cin >> T;
+    vector <int> V(T, 0);
+    for (i=0; i<T; i++) {
+        cin >> V.at(i);
     }
-    int X, Y, Z;
-    cin >> X >> Y >> Z;
 
-    // 計算
-    for (int i = 0; i < q; i++) {
-        while (true) {
-            if ((m.at(i) * k.at(i)) % (n.at(i)) == 0) {
-                break;
-            }
-            k.at(i)++;
+    // 計算と出力
+    for (i=0; i<T; i++) {
+        if ((V.at(i)>110) && (V.at(i+1)>110) && (V.at(i+2)>110) && (V.at(i+3)>110) && (V.at(i+4)>110)){
+            cout << "Too High Voltage" << endl;
+            cout << i+5 << endl;
+            counter++;
+            break;
+        }
+        else if ((V.at(i)<90) && (V.at(i+1)<90) && (V.at(i+2)<90) && (V.at(i+3)<90) && (V.at(i+4)<90) && (V.at(i+5)<90) && (V.at(i+6)<90) && (V.at(i+7)<90) && (V.at(i+8)<90) && (V.at(i+9)<90) && (V.at(i+10)<90) && (V.at(i+11)<90) && (V.at(i+12)<90) && (V.at(i+13)<90) && (V.at(i+14)<90) && (V.at(i+15)<90) && (V.at(i+16)<90) && (V.at(i+17)<90) && (V.at(i+18)<90) && (V.at(i+19)<90)){
+            cout << "Too Low Voltage" << endl;
+            cout << i+20 << endl;
+            counter++;
+            break;
         }
     }
 
-    // 出力
-    for (int i = 0; i < q; i++) {
-        cout << k.at(i) << endl;
+    if (counter==0){
+        cout << "No Problem" << endl;
     }
 
     return 0;
